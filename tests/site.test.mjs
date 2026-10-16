@@ -17,7 +17,7 @@ test("calls to action leave data and auth on the app origin", () => {
         "harimu.com",
         "app.harimu.com",
         "docs.harimu.com",
-        "sandbox.harimu.com",
+        "preview.harimu.com",
       ].includes(url.hostname),
     );
   assert.ok(!/<form\b/i.test(html));
