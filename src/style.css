@@ -870,5 +870,324 @@ footer > div {
   }
 }
 
-.access-notice { font-size: 10px; margin-top: 10px; max-width: 360px; }
-.access-notice a { color: var(--gold); text-decoration: underline; }
+.access-notice {
+  font-size: 10px;
+  margin-top: 10px;
+  max-width: 360px;
+}
+.access-notice a {
+  color: var(--gold);
+  text-decoration: underline;
+}
+.nations {
+  border-bottom: 1px solid var(--line);
+}
+.nation-section-heading {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 80px;
+  align-items: end;
+}
+.nation-section-heading h2 {
+  margin-top: 22px;
+}
+.nation-section-heading > p {
+  font-size: 14px;
+  max-width: 440px;
+}
+.nation-disclaimer {
+  font-size: 11px;
+  max-width: 950px;
+  margin-top: 30px;
+  color: #929eaa;
+  line-height: 1.8;
+}
+.nation-explorer {
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+  gap: 48px;
+  margin-top: 45px;
+  align-items: start;
+}
+.nation-tabs {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.nation-tabs button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-height: 52px;
+  padding: 12px 14px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  color: #a8b3be;
+  text-align: left;
+  font-size: 12px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.nation-tabs button[aria-selected="true"] {
+  background: #d5c6a311;
+  color: #e9dfc9;
+  box-shadow: inset 2px 0 var(--gold);
+}
+.nation-tabs button:hover {
+  background: #ffffff08;
+  color: #f0e9d8;
+}
+.nation-number {
+  font-size: 8px;
+  letter-spacing: 0.1em;
+  color: #8e988f;
+  min-width: 18px;
+}
+.nation-arrow {
+  margin-left: auto;
+  font-size: 14px;
+  opacity: 0;
+}
+.nation-tabs [aria-selected="true"] .nation-arrow {
+  opacity: 1;
+}
+.nation-profile {
+  border: 1px solid #ffffff1c;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--nation-accent) 10%, #101925),
+    #0b141f 60%
+  );
+  padding: 36px;
+  min-height: 520px;
+}
+.nation-profile[hidden] {
+  display: none;
+}
+.nation-banner {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  position: relative;
+  padding-top: 18px;
+}
+.nation-banner h3 {
+  font-size: 34px;
+  line-height: 1.3;
+  margin: 7px 0;
+  letter-spacing: -0.04em;
+}
+.nation-banner .eyebrow {
+  font-size: 8px;
+  color: var(--nation-accent);
+  letter-spacing: 0.11em;
+}
+.nation-seal {
+  display: grid;
+  place-items: center;
+  width: 74px;
+  height: 74px;
+  flex-shrink: 0;
+  border: 1px solid color-mix(in srgb, var(--nation-accent) 40%, transparent);
+  outline: 1px solid color-mix(in srgb, var(--nation-accent) 15%, transparent);
+  outline-offset: 6px;
+  border-radius: 50%;
+  color: var(--nation-accent);
+  font-size: 34px;
+  background: radial-gradient(
+    circle,
+    color-mix(in srgb, var(--nation-accent) 8%, transparent),
+    transparent
+  );
+}
+.nation-motto {
+  font-size: 12px;
+  color: #c4cbd0;
+}
+.nation-design-label {
+  position: absolute;
+  right: 0;
+  top: -10px;
+  font-size: 7px;
+  letter-spacing: 0.15em;
+  color: #95a3b1;
+}
+.nation-intro {
+  font-size: 14px;
+  margin: 30px 0 26px;
+  max-width: 600px;
+}
+.nation-basics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  margin: 0 0 24px;
+}
+.nation-profile dt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--nation-accent);
+  margin-bottom: 9px;
+}
+.nation-profile dd {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #aeb8c3;
+  margin: 0;
+}
+.nation-details {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.nation-details summary {
+  font-size: 12px;
+  padding-block: 18px;
+  align-items: center;
+}
+.nation-depth {
+  display: grid;
+  gap: 20px;
+  margin: 0 0 26px;
+}
+.nation-tradeoffs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+  padding: 24px 0;
+  border-top: 1px solid var(--line);
+}
+.nation-tradeoffs .eyebrow {
+  font-size: 8px;
+  margin-bottom: 10px;
+  color: var(--nation-accent);
+}
+.nation-tradeoffs p:not(.eyebrow) {
+  font-size: 12px;
+  padding: 0;
+  color: #aeb8c3;
+}
+.nation-source {
+  font-size: 11px;
+  margin-top: 20px;
+}
+.nation-section-heading a {
+  color: var(--gold);
+}
+@media (max-width: 1000px) {
+  .nation-explorer {
+    grid-template-columns: 210px minmax(0, 1fr);
+    gap: 26px;
+  }
+  .nation-profile {
+    padding: 28px;
+  }
+  .nation-banner h3 {
+    font-size: 28px;
+  }
+  .nation-banner {
+    gap: 18px;
+  }
+  .nation-seal {
+    width: 57px;
+    height: 57px;
+    font-size: 27px;
+  }
+  .nation-basics {
+    gap: 20px;
+  }
+  .nation-section-heading {
+    gap: 45px;
+  }
+}
+@media (max-width: 680px) {
+  .nation-section-heading {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .nation-section-heading h2 {
+    font-size: 33px;
+  }
+  .nation-section-heading > p {
+    font-size: 13px;
+  }
+  .nation-disclaimer {
+    font-size: 10px;
+    margin-top: 22px;
+  }
+  .nation-explorer {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    margin-top: 30px;
+  }
+  .nation-tabs {
+    grid-template-columns: 1fr 1fr;
+    border-bottom: 1px solid var(--line);
+    gap: 0 10px;
+  }
+  .nation-tabs button {
+    font-size: 10px;
+    padding: 11px 8px;
+    min-height: 45px;
+    gap: 7px;
+  }
+  .nation-number {
+    font-size: 7px;
+    min-width: 13px;
+  }
+  .nation-arrow {
+    font-size: 11px;
+  }
+  .nation-profile {
+    padding: 26px 22px;
+    min-height: 0;
+  }
+  .nation-banner {
+    gap: 19px;
+    padding-top: 15px;
+  }
+  .nation-banner h3 {
+    font-size: 27px;
+  }
+  .nation-banner .eyebrow {
+    font-size: 7px;
+    line-height: 1.8;
+  }
+  .nation-seal {
+    width: 48px;
+    height: 48px;
+    font-size: 24px;
+  }
+  .nation-design-label {
+    font-size: 6px;
+    top: -9px;
+  }
+  .nation-intro {
+    font-size: 13px;
+    margin-top: 26px;
+  }
+  .nation-basics {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .nation-profile dd {
+    font-size: 12px;
+  }
+  .nation-details summary {
+    font-size: 11px;
+    gap: 10px;
+  }
+  .nation-tradeoffs {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+  .nation-source {
+    font-size: 10px;
+  }
+  .nation-details p {
+    padding: 0;
+  }
+}

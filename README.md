@@ -44,3 +44,7 @@ Earth day and night textures are vendored from the Three.js example texture coll
 - https://threejs.org/examples/textures/planets/earth_lights_2048.png
 
 The Three.js project is MIT licensed: https://github.com/mrdoob/three.js/blob/dev/LICENSE. The imagery represents Earth and is used for an illustrative Earth-like globe. No claim of a geographically accurate Harimu map is made.
+
+## Nation explorer
+
+Edit `src/nations.json`; `scripts/generate-nations.mjs` writes the marked section in `index.html` before dev/build. Ten static design profiles include culture, faith, government, economics, citizen influence, strengths, and trade-offs. Tabs support arrow keys, Home and End; detail disclosures are native HTML. Each profile links to its official docs page. The common label distinguishes the ten-nation vision from Kindle/Korund/Aurelle prototype systems. Fulmara follows current Decision 65: shares influence non-election shareholder resolutions, while citizen election ballots are one eligible verified human, one vote. Capitals and other names remain documented working names.

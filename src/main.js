@@ -54,3 +54,37 @@ if (!reducedMotion.matches && !connection?.saveData) {
     requestIdleCallback(load, { timeout: 1800 });
   else setTimeout(load, 250);
 }
+
+const nationTabs = [...document.querySelectorAll("[data-nation]")];
+function selectNation(tab) {
+  for (const item of nationTabs) {
+    const active = item === tab;
+    item.setAttribute("aria-selected", String(active));
+    item.tabIndex = active ? 0 : -1;
+    document.getElementById(item.getAttribute("aria-controls")).hidden =
+      !active;
+  }
+}
+for (const tab of nationTabs) {
+  tab.addEventListener("click", () => selectNation(tab));
+  tab.addEventListener("keydown", (event) => {
+    let index = nationTabs.indexOf(tab);
+    if (["ArrowRight", "ArrowDown"].includes(event.key))
+      index = (index + 1) % nationTabs.length;
+    else if (["ArrowLeft", "ArrowUp"].includes(event.key))
+      index = (index + nationTabs.length - 1) % nationTabs.length;
+    else if (event.key === "Home") index = 0;
+    else if (event.key === "End") index = nationTabs.length - 1;
+    else return;
+    event.preventDefault();
+    selectNation(nationTabs[index]);
+    nationTabs[index].focus();
+  });
+}
+const nationNavigation = document.querySelector('.nation-tabs');
+const compactNations = matchMedia('(max-width: 680px)');
+function updateNationOrientation() {
+  nationNavigation.setAttribute('aria-orientation', compactNations.matches ? 'horizontal' : 'vertical');
+}
+updateNationOrientation();
+compactNations.addEventListener('change', updateNationOrientation);

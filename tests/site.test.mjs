@@ -18,7 +18,7 @@ test("calls to action leave data and auth on the app origin", () => {
         "app.harimu.com",
         "docs.harimu.com",
         "preview.harimu.com",
-          "github.com",
+        "github.com",
       ].includes(url.hostname),
     );
   assert.ok(!/<form\b/i.test(html));
@@ -48,4 +48,38 @@ test("production bundle excludes credentials and server integrations", () => {
     }
   }
   scan(dist);
+});
+
+test("all ten source-backed nation profiles have unique navigation and complete context", () => {
+  const nations = JSON.parse(
+    readFileSync(new URL("../src/nations.json", import.meta.url)),
+  );
+  assert.equal(nations.length, 10);
+  assert.equal(new Set(nations.map((n) => n.slug)).size, 10);
+  for (const nation of nations) {
+    for (const key of [
+      "culture",
+      "faith",
+      "government",
+      "economy",
+      "voice",
+      "strength",
+      "tradeoff",
+    ])
+      assert.ok(nation[key]?.length > 25, `${nation.name}: ${key}`);
+    assert.ok(html.includes(`id="nation-tab-${nation.slug}"`));
+    assert.ok(html.includes(`id="nation-${nation.slug}"`));
+    assert.ok(
+      html.includes(`https://docs.harimu.com/world/nations/${nation.slug}`),
+    );
+  }
+});
+test("Fulmara separates shareholder resolutions from human election ballots", () => {
+  const nations = JSON.parse(
+    readFileSync(new URL("../src/nations.json", import.meta.url)),
+  );
+  const fulmara = nations.find((n) => n.slug === "fulmara");
+  assert.match(fulmara.government, /non-election shareholder resolutions/);
+  assert.match(fulmara.voice, /one eligible verified human, one vote/);
+  assert.match(fulmara.voice, /Shares add no election ballots/);
 });
