@@ -22,7 +22,7 @@ Existing public Sites project: `appgprj_6acc915e6d28819195fb8b517441739e`, title
 
 The prior Sites source is a separate Cloudflare Artifact Git repository (retrieved commit `c6729c4b23094f79e995c1d3a287f4a8240627d1`). The game checkout at `/Users/thachp/repos/harimu/site` has GitHub remote `thachp/harimu` and is not the canonical current Sites source. This dedicated landing-page source has destination `thachp/harimu-web`.
 
-`.openai/hosting.json` selects static `dist/` and retains the existing D1/R2 declarations solely to preserve project configuration. This app does not use those bindings. There is no deploy-on-push workflow. Merging a PR does **not** publish it to Sites automatically. After review, the coordinating owner must deliberately synchronize/package this source for the existing Site and save/deploy a version with the Sites tools. Review the static-vs-existing-Worker transition before publication; do not run database migrations or copy game secrets.
+`.openai/hosting.json` selects static `dist/` and declares D1/R2 as null because static hosting does not accept runtime bindings. No database is deleted or migrated. There is no deploy-on-push workflow. Merging a PR does **not** publish it to Sites automatically. After review, the coordinating owner must deliberately synchronize/package this source for the existing Site and save/deploy a version with the Sites tools. Review the static-vs-existing-Worker transition before publication; do not run database migrations or copy game secrets.
 
 No DNS, app, sandbox, docs, auth, or database changes are part of this repository. Do not merge or publish without the owner's requested review.
 
