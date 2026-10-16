@@ -39,6 +39,7 @@ Verified against live `https://docs.harimu.com` on 2026-10-16: GDD v0.18, last u
 ## Assets
 
 Earth day and night textures are vendored from the Three.js example texture collection:
+
 - https://threejs.org/examples/textures/planets/earth_atmos_2048.jpg
 - https://threejs.org/examples/textures/planets/earth_lights_2048.png
 
