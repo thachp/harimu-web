@@ -34,7 +34,7 @@ Verified against live `https://docs.harimu.com` on 2026-10-16: GDD v0.18, last u
 - https://docs.harimu.com/politics/ai-leadership
 - https://docs.harimu.com/tech/architecture
 
-`https://app.harimu.com` is the requested primary destination. Local DNS could not resolve that hostname during verification; verify reachability before publication. `preview.harimu.com` is labeled development only.
+All primary Open prototype calls to action point to `https://preview.harimu.com`, the working prototype, verified HTTP 200. The landing page labels its development status and notes that the testing world may reset.
 
 ## Assets
 

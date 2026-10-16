@@ -6,16 +6,20 @@ test("all local navigation destinations exist", () => {
   for (const [, id] of html.matchAll(/href="#([^"]+)"/g))
     assert.ok(html.includes(`id="${id}"`), `Missing #${id}`);
 });
-test("calls to action leave data and auth on the app origin", () => {
+test("calls to action open the working prototype without local auth", () => {
   const links = [...html.matchAll(/href="(https:[^"]+)"/g)].map(
     (m) => new URL(m[1]),
   );
-  assert.ok(links.some((u) => u.hostname === "app.harimu.com"));
+  assert.ok(links.some((u) => u.hostname === "preview.harimu.com"));
+  assert.ok(!html.includes("app.harimu.com"));
+  const primaryLinks = [...html.matchAll(/class="button[^"]*" href="([^"]+)"/g)];
+  assert.equal(primaryLinks.length, 3);
+  for (const link of primaryLinks) assert.equal(link[1], "https://preview.harimu.com");
+  assert.ok(!html.includes("App access is being configured"));
   for (const url of links)
     assert.ok(
       [
         "harimu.com",
-        "app.harimu.com",
         "docs.harimu.com",
         "preview.harimu.com",
         "github.com",
